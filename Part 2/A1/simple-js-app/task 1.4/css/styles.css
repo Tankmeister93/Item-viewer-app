@@ -1,0 +1,13 @@
+/*This is my styles page*/
+.body {
+  text-align: center;
+  font-size: 20px;
+}
+.list-item {
+  display: flex;
+  list-style-type: none;
+}
+.list-object {
+  margin: 10px;
+  font-size: 25px;
+}
