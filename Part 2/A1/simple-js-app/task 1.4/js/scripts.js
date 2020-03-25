@@ -25,6 +25,4 @@ var repository = [
   },
 ];
 
-repository.forEach(function(creatureName, creatureHeight, creatureAbilities, creatureTypes) {
-  console.log(creatureName, creatureHeight, creatureAbilities, creatureTypes)
-});
+repository.forEach(element => console.log(element));
