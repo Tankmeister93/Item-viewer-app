@@ -1,46 +1,57 @@
 var pokemonRepository = (function () {
-var repository = [
+  var repository = [
     {
-      creatureName : 'Carnivine',
-      creatureHeight : 4.07,
-      creatureAbilities : ['Levitate'],
-      creatureTypes : ['Grass']
+      creatureName: "Carnivine",
+      creatureHeight: 4.07,
+      creatureAbilities: ["Levitate"],
+      creatureTypes: ["Grass"]
     },
     {
-      creatureName : 'Metapod',
-      creatureHeight : 2.04,
-      creatureAbilities : ['Shed-skin'],
-      creatureTypes : ['Bug']
+      creatureName: "Metapod",
+      creatureHeight: 2.04,
+      creatureAbilities: ["Shed-skin"],
+      creatureTypes: ["Bug"]
     },
     {
-      creatureName : 'Charmander',
-      creatureHeight : 2.00,
-      creatureAbilities : ['Blaze', 'Solar-power'],
-      creatureTypes : ['Fire']
+      creatureName: "Charmander",
+      creatureHeight: 2.0,
+      creatureAbilities: ["Blaze", "Solar-power"],
+      creatureTypes: ["Fire"]
     },
     {
-      creatureName : 'Squirtle',
-      creatureHeight : 0.5,
-      creatureAbilities : ['Rain-dish', 'Torrent'],
-      creatureTypes : ['Monster', 'Water  1']
-    },
+      creatureName: "Squirtle",
+      creatureHeight: 0.5,
+      creatureAbilities: ["Rain-dish", "Torrent"],
+      creatureTypes: ["Monster", "Water  1"]
+    }
   ];
-  function addListItem(pokemon) {
-    pokemonRepository.addListItem().forEach((element) => console.log(element));
-    };
-  function showDetails(pokemon) {
-    console.log(pokemon)
-  }
+
   function add(pokemon) {
     repository.push(pokemon);
   }
+
   function getAll() {
     return repository;
   }
 
+  function addListItem(pokemon) {
+    var $newList = document.querySelector("ul");
+    var listItem = document.createElement("li");
+    var button = document.createElement("button");
+    addListItem.innerText = pokemonRepository.creatureName;
+    button.classList.add("pokemonButton");
+    listItem.appendChild(button);
+    $newList.appendChild(listItem);
+    button.addEventListener('click', function() {showDetails(pokemon)});
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon)
+  }
+
   return {
-    add : add, 
-    getAll : getAll,
+    add: add,
+    getAll: getAll,
     addListItem : addListItem,
     showDetails : showDetails
   };
@@ -54,15 +65,4 @@ pokemonRepository.add({
 });
 console.log(pokemonRepository.getAll());
 console.log(pokemonRepository.add());
-
-document.querySelector('ul')
-var listItem = document.createElement('li');
-var button = document.createElement('button');
-button.addEventListener ('click',function showDetails(click){
-  console.log(`${click}creatureName`);
-});
-button.innerText = 'creatureName';
-console.log(listItem.innerText);
-button.classList.add('pokemon-list')
-listItem.appendChild(button);
-
+Object.keys(pokemonRepository.getAll()).forEach((property) => pokemonRepository.addListItem(pokemonRepository.getAll()[property]));
