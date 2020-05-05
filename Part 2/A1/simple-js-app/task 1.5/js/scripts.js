@@ -47,5 +47,8 @@ pokemonRepository.add({
   creatureTypes: ['Water'],
 });
 console.log(pokemonRepository.getAll());
-console.log(pokemonRepository.add('Wartortle'));
-pokemonRepository.getAll().forEach((element) => console.log(element));
+console.log(pokemonRepository.add());
+Object.keys(pokemonRepository.getAll()).forEach(function(property) {
+  document.write(pokemonRepository.getAll()[property].creatureName + " (height: " + pokemonRepository.getAll()[property].creatureHeight + ")" + "<br>"
+  );
+});
