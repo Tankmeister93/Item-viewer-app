@@ -37,12 +37,13 @@ var pokemonRepository = (function () {
   function addListItem(pokemon) {
     var $newList = document.querySelector("ul");
     var listItem = document.createElement("li");
-    var button = document.createElement("button");
-    addListItem.innerText = pokemonRepository.creatureName;
-    button.classList.add("pokemonButton");
-    listItem.appendChild(button);
+    var $button = document.createElement("button");
+    addListItem.innerText = pokemonRepository.pokemon;
+    $button.classList.add("pokemonButton");
+    listItem.appendChild($button);
     $newList.appendChild(listItem);
-    button.addEventListener('click', function() {showDetails(pokemon)});
+    $button.addEventListener('click', function() {showDetails(pokemon)
+    });
   }
 
   function showDetails(pokemon) {
@@ -56,7 +57,9 @@ var pokemonRepository = (function () {
     showDetails : showDetails
   };
 })();
-
+Object.keys(pokemonRepository).forEach(function addListItem(pokemon){
+  console.log(pokemonRepository[pokemon]);
+});
 pokemonRepository.add({
   creatureName : 'Wartortle',
   creatureHeight : 3.03,
@@ -64,5 +67,3 @@ pokemonRepository.add({
   creatureTypes: ['Water'],
 });
 console.log(pokemonRepository.getAll());
-console.log(pokemonRepository.add());
-Object.keys(pokemonRepository.getAll()).forEach((property) => pokemonRepository.addListItem(pokemonRepository.getAll()[property]));
