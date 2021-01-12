@@ -39,7 +39,7 @@ var pokemonRepository = (function () {
     var listItem = document.createElement("li");
     var $button = document.createElement("button");
     addListItem.innerText = pokemonRepository.pokemon;
-    $button.classList.add("pokemonButton");
+    $button.classList.add(".pokemonButton");
     listItem.appendChild($button);
     $newList.appendChild(listItem);
     $button.addEventListener('click', function() {showDetails(pokemon)
